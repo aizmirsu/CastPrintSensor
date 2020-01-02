@@ -1,0 +1,6 @@
+framework module Pods_CastPrintSensorTests {
+  umbrella header "Pods-CastPrintSensorTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
