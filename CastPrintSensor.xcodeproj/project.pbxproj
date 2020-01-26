@@ -15,6 +15,7 @@
 		2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9222811F38797600A648E6 /* ConfigurationManager.swift */; };
 		2ABEE6D41F38856A00531205 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ABEE6D31F38828A00531205 /* Configuration.plist */; };
 		2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEE6D51F3886D700531205 /* RootRouter.swift */; };
+		3C06139323CBC14D001F1353 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C06139223CBC14D001F1353 /* OpenGLES.framework */; };
 		3C6051D9239D8D2A00F78E6B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6051D8239D8D2900F78E6B /* R.generated.swift */; };
 		3C6051DD239D9CFB00F78E6B /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C776728239D7EE400CA2332 /* Structure.framework */; };
 		3C6051DE239D9CFB00F78E6B /* Structure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C776728239D7EE400CA2332 /* Structure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -72,6 +73,7 @@
 		2ABEE6D31F38828A00531205 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		2ABEE6D51F3886D700531205 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		318E68FF55B9D80384B8A41F /* Pods_CastPrintSensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastPrintSensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C06139223CBC14D001F1353 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3C6051D8239D8D2900F78E6B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3C776728239D7EE400CA2332 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Structure.framework; sourceTree = "<group>"; };
 		3C77672B239D815000CA2332 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C06139323CBC14D001F1353 /* OpenGLES.framework in Frameworks */,
 				3C6051DD239D9CFB00F78E6B /* Structure.framework in Frameworks */,
 				3C776732239D817000CA2332 /* ExternalAccessory.framework in Frameworks */,
 				3C776730239D816700CA2332 /* ImageIO.framework in Frameworks */,
@@ -177,6 +180,7 @@
 		2AB31D9F1F38741400B7D1F3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3C06137723C3B00D001F1353 /* Scanner */,
 				2A1DD4E21F38A09700712195 /* Launch */,
 			);
 			path = Modules;
@@ -261,6 +265,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		3C06137723C3B00D001F1353 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		553FC239214046D0001D9362 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +283,7 @@
 		835CBC222A042520F188191B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C06139223CBC14D001F1353 /* OpenGLES.framework */,
 				3C776731239D817000CA2332 /* ExternalAccessory.framework */,
 				3C77672F239D816700CA2332 /* ImageIO.framework */,
 				3C77672D239D815B00CA2332 /* Accelerate.framework */,
@@ -496,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
