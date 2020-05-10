@@ -5,7 +5,9 @@
 //  Created by Uvis Štrauss on 04/04/2020.
 //  Copyright © 2020 CastPrint. All rights reserved.
 //
-// swiftlint:disable identifier_name line_length
+
+// swiftlint:disable identifier_name line_length force_unwrapping type_body_length explicit_init
+
 let MAX_MESHES: Int = 30
 
 class MeshRenderer: NSObject {
@@ -43,11 +45,11 @@ class MeshRenderer: NSObject {
         var linesVbo = [GLuint](repeating: 0, count: MAX_MESHES)
 
         // OpenGL Texture reference for y and chroma images.
-        var lumaTexture: CVOpenGLESTexture? = nil
-        var chromaTexture: CVOpenGLESTexture? = nil
+        var lumaTexture: CVOpenGLESTexture?
+        var chromaTexture: CVOpenGLESTexture?
 
         // OpenGL Texture cache for the color texture.
-        var textureCache: CVOpenGLESTextureCache? = nil
+        var textureCache: CVOpenGLESTextureCache?
 
         // Texture unit to use for texture binding/rendering.
         var textureUnit: GLenum = GLenum(GL_TEXTURE3)
@@ -85,17 +87,17 @@ class MeshRenderer: NSObject {
 
   func releaseGLTextures() {
 
-        if (privD!.lumaTexture != nil) {
+        if privD!.lumaTexture != nil {
 
             privD!.lumaTexture = nil
         }
 
-        if (privD!.chromaTexture != nil) {
+        if privD!.chromaTexture != nil {
 
             privD!.chromaTexture = nil
         }
 
-        if (privD!.textureCache != nil) {
+        if privD!.textureCache != nil {
 
             privD!.textureCache = nil
         }
@@ -166,14 +168,12 @@ class MeshRenderer: NSObject {
 
         if privD!.currentRenderingMode == RenderingMode.perVertexColor || privD!.currentRenderingMode == RenderingMode.textured {
             glClearColor(0.9, 0.9, 0.9, 1)
-        }
-        else if privD!.currentRenderingMode  == RenderingMode.lightedGray {
+        } else if privD!.currentRenderingMode == RenderingMode.lightedGray {
             glClearColor(0.3, 0.3, 0.3, 1.0)
-        }
-        else {
+        } else {
             glClearColor(0.4, 0.4, 0.4, 1.0)
         }
-    
+
         glClearDepthf(1)
 
         glClear( GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
@@ -186,7 +186,6 @@ class MeshRenderer: NSObject {
    func getRenderingMode() -> RenderingMode {
         return privD!.currentRenderingMode
     }
-
 
     func uploadMesh(_ mesh: STMesh) {
 
@@ -471,4 +470,3 @@ class MeshRenderer: NSObject {
         }
     }
 }
-

@@ -6,6 +6,8 @@
 //  Copyright © 2020 CastPrint. All rights reserved.
 //
 
+// swiftlint:disable identifier_name force_unwrapping line_length explicit_init
+
 func nowInSeconds() -> Double {
 
     var timebase = mach_timebase_info_data_t()
@@ -13,11 +15,10 @@ func nowInSeconds() -> Double {
 
     let newTime: UInt64 = mach_absolute_time()
 
-    return (Double(newTime) * Double(timebase.numer))/(Double(timebase.denom) * 1e9)
+    return (Double(newTime) * Double(timebase.numer)) / (Double(timebase.denom) * 1e9)
 }
 
-class ViewpointController : NSObject {
-// swiftlint:disable identifier_name
+class ViewpointController: NSObject {
     var d: PrivateData?
 
     struct PrivateData {
@@ -64,7 +65,7 @@ class ViewpointController : NSObject {
             modelViewRotation = GLKMatrix4Identity
             velocitiesDampingRatio = GLKVector2Make(0.95, 0.95)
             modelViewRotationVelocity = GLKVector2Make(0, 0)
-            
+
             referenceProjectionMatrix = GLKMatrix4Identity
             lastModelViewRotationUpdateTimestamp = 0
             oneFingerPanWhenGestureBegan = GLKVector2Make(0, 0)
@@ -77,7 +78,7 @@ class ViewpointController : NSObject {
     override init() {
         super.init()
     }
-    
+
     convenience init(screenSizeX: Float, screenSizeY: Float) {
         self.init()
         self.d = PrivateData.init(screenSizeX: screenSizeX, screenSizeY: screenSizeY)
@@ -85,12 +86,12 @@ class ViewpointController : NSObject {
     }
 
     deinit {
-        
+
         self.d = nil
     }
 
     func reset() {
-        
+
         d!.cameraOrProjectionChangedSinceLastUpdate = false
         d!.scaleWhenPinchGestureBegan = 1
         d!.currentScale = 1
@@ -101,7 +102,7 @@ class ViewpointController : NSObject {
         d!.velocitiesDampingRatio = GLKVector2Make(0.99, 0.99)
         d!.modelViewRotationVelocity = GLKVector2Make(0, 0)
     }
-    
+
     func setCameraProjection(_ projRt: GLKMatrix4) {
 
         d!.referenceProjectionMatrix = projRt
@@ -159,16 +160,16 @@ class ViewpointController : NSObject {
     }
 
     internal func onTwoFingersPanChanged (_ touch: GLKVector2) {
-        
+
         d!.meshCenterOnScreen = GLKVector2Add(GLKVector2Subtract(touch, d!.twoFingersPanWhenGestureBegan), d!.meshCenterOnScreenWhenPanGestureBegan)
         d!.cameraOrProjectionChangedSinceLastUpdate = true
     }
-    
+
     internal func onTwoFingersPanEnded(_ vel: GLKVector2) {
     }
-    
+
     internal func onTouchBegan() {
-        
+
         // Stop the current animations when the user touches the screen.
         d!.modelViewRotationVelocity = GLKVector2Make(0, 0)
     }
@@ -191,9 +192,9 @@ class ViewpointController : NSObject {
     }
 
     // Projection matrix in OpenGL space.
-    
+
     internal func currentGLProjectionMatrix() -> GLKMatrix4 {
-        
+
         // The scale is directly applied to the reference projection matrix.
         let scale = GLKMatrix4MakeScale(d!.currentScale, d!.currentScale, 1)
 
@@ -225,7 +226,7 @@ class ViewpointController : NSObject {
             // Slow down the velocities.
             let resX = d!.modelViewRotationVelocity.x * d!.velocitiesDampingRatio.x
             let resY = d!.modelViewRotationVelocity.y * d!.velocitiesDampingRatio.y
-            
+
             d!.modelViewRotationVelocity = GLKVector2Make(resX, resY)
 
             // Make sure we stop animating and taking resources when it became too small.
@@ -251,5 +252,3 @@ class ViewpointController : NSObject {
         return GLKMatrix4MakeTranslation(-deltaFromScreenCenter.x / d!.screenCenter.x, deltaFromScreenCenter.y / d!.screenCenter.y, 0)
     }
 }
-
-

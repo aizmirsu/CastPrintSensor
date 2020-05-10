@@ -6,7 +6,8 @@
 //  Copyright © 2020 CastPrint. All rights reserved.
 //
 
-// swiftlint:disable line_length
+// swiftlint:disable line_length explicit_init force_unwrapping
+
 func deltaRotationAngleBetweenPosesInDegrees(_ previousPose: GLKMatrix4, newPose: GLKMatrix4) -> Float {
 
     // Transpose is equivalent to inverse since we will only use the rotation part.
@@ -240,17 +241,16 @@ extension ScanController {
 
         case .veryLow, .notAvailable:
 
-            _display!.meshRenderingAlpha = 0.1;
+            _display!.meshRenderingAlpha = 0.1
 
         @unknown default:
-            _display!.meshRenderingAlpha = 0.1;
+            _display!.meshRenderingAlpha = 0.1
         }
     }
 
     func processDepthFrame(_ depthFrame: STDepthFrame, colorFrame: STColorFrame?) {
 
-        if _options.applyExpensiveCorrectionToDepth
-        {
+        if _options.applyExpensiveCorrectionToDepth {
             assert(!_options.useHardwareRegisteredDepth, "Cannot enable both expensive depth correction and registered depth.")
             let couldApplyCorrection = depthFrame.applyExpensiveCorrection()
             if !couldApplyCorrection {
@@ -259,10 +259,9 @@ extension ScanController {
         }
 
         // Upload the new color image for next rendering.
-        if _useColorCamera  && colorFrame != nil {
+        if _useColorCamera && colorFrame != nil {
             uploadGLColorTexture(colorFrame: colorFrame!)
-        }
-        else if !_useColorCamera {
+        } else if !_useColorCamera {
             uploadGLColorTextureFromDepth(depthFrame)
         }
 
@@ -283,8 +282,7 @@ extension ScanController {
             // If we are using color images but not using registered depth, then use a registered
             // version to detect the cube, otherwise the cube won't be centered on the color image,
             // but on the depth image, and thus appear shifted.
-            if _useColorCamera && !_options.useHardwareRegisteredDepth
-            {
+            if _useColorCamera && !_options.useHardwareRegisteredDepth {
                 var colorCameraPoseInDepthCoordinateSpace = GLKMatrix4.init(m: (0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0))
 
                 withUnsafeMutablePointer(to: &colorCameraPoseInDepthCoordinateSpace, {
@@ -329,9 +327,9 @@ extension ScanController {
         case .scanning:
             // First try to estimate the 3D pose of the new frame.
 
-            var trackingMessage: NSString? = nil
+            var trackingMessage: NSString?
 
-            var keyframeMessage: NSString? = nil
+            var keyframeMessage: NSString?
 
             let depthCameraPoseBeforeTracking: GLKMatrix4 = _slamState.tracker!.lastFrameCameraPose()
 
@@ -369,7 +367,7 @@ extension ScanController {
 
             _slamState.prevFrameTimeStamp = depthFrame.timestamp
 
-            case .viewing:
+        case .viewing:
                 break
             // Do nothing, the MeshViewController will take care of this.
         }
@@ -405,7 +403,7 @@ extension ScanController: STSensorControllerDelegate {
         NSLog("[Structure] Sensor connected!")
 
         if currentStateNeedsSensor() {
-            let _ = connectToStructureSensorAndStartStreaming()
+            _ = connectToStructureSensorAndStartStreaming()
         }
 
         if !calibrationOverlay.isHidden {
@@ -531,7 +529,7 @@ extension ScanController: STSensorControllerDelegate {
             startStructureSensorStreaming()
 
         } else {
-            switch (result) {
+            switch result {
             case .sensorNotFound:
                 NSLog("[Structure] No sensor found")
 
@@ -603,7 +601,6 @@ extension ScanController: STSensorControllerDelegate {
             }
         }
 
-
         NSLog("[Structure] Streaming started.")
 
         // Notify and initialize streaming dependent objects.
@@ -657,4 +654,3 @@ extension ScanController: STSensorControllerDelegate {
         }
     }
 }
-

@@ -7,6 +7,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -58,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/
         notificationsHandler.handleRemoteNotification(with: userInfo)
     }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions

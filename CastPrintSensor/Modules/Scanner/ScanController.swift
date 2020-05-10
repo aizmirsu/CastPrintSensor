@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import UIKit
 import GLKit
+import UIKit
 
-// swiftlint:disable file_length force_try type_body_length identifier_name line_length
+// swiftlint:disable file_length force_try type_body_length identifier_name line_length explicit_init force_unwrapping
 
 struct DynamicOptions {
 	var newTrackerIsOn = true
@@ -83,13 +83,13 @@ struct SlamData {
 
 	var prevFrameTimeStamp: TimeInterval = -1
 
-	var scene: STScene? = nil
-	var tracker: STTracker? = nil
-	var mapper: STMapper? = nil
-	var cameraPoseInitializer: STCameraPoseInitializer? = nil
+	var scene: STScene?
+	var tracker: STTracker?
+	var mapper: STMapper?
+	var cameraPoseInitializer: STCameraPoseInitializer?
 	var initialDepthCameraPose: GLKMatrix4 = GLKMatrix4Identity
 	var cubePose: GLKMatrix4 = GLKMatrix4Identity
-	var keyFrameManager: STKeyFrameManager? = nil
+	var keyFrameManager: STKeyFrameManager?
 	var scannerState: ScannerState = .cubePlacement
 
 	var volumeSizeInMeters = GLKVector3Make(Float.nan, Float.nan, Float.nan)
@@ -143,25 +143,25 @@ struct AppStatus {
 struct DisplayData {
 
 	// OpenGL context.
-	var context: EAGLContext? = nil
+	var context: EAGLContext?
 
 	// OpenGL Texture reference for y images.
-	var lumaTexture: CVOpenGLESTexture? = nil
+	var lumaTexture: CVOpenGLESTexture?
 
 	// OpenGL Texture reference for color images.
-	var chromaTexture: CVOpenGLESTexture? = nil
+	var chromaTexture: CVOpenGLESTexture?
 
 	// OpenGL Texture cache for the color camera.
-	var videoTextureCache: CVOpenGLESTextureCache? = nil
+	var videoTextureCache: CVOpenGLESTextureCache?
 
 	// Shader to render a GL texture as a simple quad.
-	var yCbCrTextureShader: STGLTextureShaderYCbCr? = nil
-	var rgbaTextureShader: STGLTextureShaderRGBA? = nil
+	var yCbCrTextureShader: STGLTextureShaderYCbCr?
+	var rgbaTextureShader: STGLTextureShaderRGBA?
 
 	var depthAsRgbaTexture: GLuint = 0
 
 	// Renders the volume boundaries as a cube.
-	var cubeRenderer: STCubeRenderer? = nil
+	var cubeRenderer: STCubeRenderer?
 
 	// OpenGL viewport.
 	var viewport: [GLfloat] = [0, 0, 0, 0]
@@ -175,7 +175,6 @@ struct DisplayData {
 	// Mesh rendering alpha
 	var meshRenderingAlpha: Float = 0.8
 }
-
 
 class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelegate, UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
 
@@ -220,18 +219,18 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 	var meshViewController: MeshViewController!
 
 	// IMU handling.
-	var _motionManager: CMMotionManager? = nil
-	var _imuQueue: OperationQueue? = nil
+	var _motionManager: CMMotionManager?
+	var _imuQueue: OperationQueue?
 
-	var _naiveColorizeTask: STBackgroundTask? = nil
-	var _enhancedColorizeTask: STBackgroundTask? = nil
-	var _depthAsRgbaVisualizer: STDepthToRgba? = nil
+	var _naiveColorizeTask: STBackgroundTask?
+	var _enhancedColorizeTask: STBackgroundTask?
+	var _depthAsRgbaVisualizer: STDepthToRgba?
 
 	var _useColorCamera = true
 	var trackerShowingScanStart = false
 
-	var avCaptureSession: AVCaptureSession? = nil
-	var videoDevice: AVCaptureDevice? = nil
+	var avCaptureSession: AVCaptureSession?
+	var videoDevice: AVCaptureDevice?
 
 	deinit {
 		avCaptureSession!.stopRunning()
@@ -301,11 +300,11 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 		if !defaults.bool(forKey: "instructionOverlay") {
 
-			let _ = Timer.schedule(10.0, handler: {_ in
+			_ = Timer.schedule(10.0, handler: {_ in
 				self.instructionOverlay.isHidden = false
 				self.instructionOverlay.isUserInteractionEnabled = true
 				self.instructionOverlay.alpha = 1
-				let _ = Timer.schedule(15.0, handler: { _ in
+				_ = Timer.schedule(15.0, handler: { _ in
 					UIView.animate(withDuration: 0.3, animations: {
 
 						self.instructionOverlay.alpha = 0
@@ -327,7 +326,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 	@objc func appDidBecomeActive() {
 
 		if currentStateNeedsSensor() {
-			let _ = connectToStructureSensorAndStartStreaming()
+			_ = connectToStructureSensorAndStartStreaming()
 		}
 
 		// Abort the current scan if we were still scanning before going into background since we
@@ -371,7 +370,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 	}
 
 	// Make sure the status bar is hidden
-	override var prefersStatusBarHidden : Bool {
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
@@ -409,7 +408,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 		let sampleStep = Int(max(1, totalNumVertices / 1000))
 		var sampleCount: Int32 = 0
-		var volumeCenter = GLKVector3Make(0, 0,0)
+		var volumeCenter = GLKVector3Make(0, 0, 0)
 
 		for i in 0..<mesh.numberOfMeshes() {
 			let numVertices = Int(mesh.number(ofMeshVertices: i))
@@ -584,7 +583,6 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 	@IBAction func newTrackerSwitchChanged(sender: UISwitch) {
 
-
 		_dynamicOptions.newTrackerIsOn = enableNewTrackerSwitch.isOn
 
 		onSLAMOptionsChanged()
@@ -594,7 +592,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 		_dynamicOptions.highResColoring = self.enableHighResolutionColorSwitch.isOn
 
-		if (avCaptureSession != nil) {
+		if avCaptureSession != nil {
 
 			stopColorCamera()
 
@@ -610,7 +608,6 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 		// supported by STColorizer.
 		onSLAMOptionsChanged() // will call UI sync
 	}
-
 
 	@IBAction func newMapperSwitchChanged(sender: UISwitch) {
 
@@ -801,7 +798,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 	@IBAction func toggleNewTrackerVisible(sender: UILongPressGestureRecognizer) {
 
-		if (sender.state == .began) {
+		if sender.state == .began {
 
 			toggleTracker(show: enableNewTrackerView.isHidden)
 		}
@@ -852,7 +849,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 		_appStatus.statusMessageDisabled = false
 		updateAppStatusMessage()
 
-		let _ = connectToStructureSensorAndStartStreaming()
+		_ = connectToStructureSensorAndStartStreaming()
 
 		resetSLAM()
 	}
@@ -861,12 +858,12 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
 		if sender == _naiveColorizeTask {
             DispatchQueue.main.async(execute: {
-				self.meshViewController.showMeshViewerMessage(String.init(format: "Processing: % 3d%%", Int(progress*20)))
+				self.meshViewController.showMeshViewerMessage(String.init(format: "Processing: % 3d%%", Int(progress * 20)))
             })
 		} else if sender == _enhancedColorizeTask {
 
             DispatchQueue.main.async(execute: {
-            self.meshViewController.showMeshViewerMessage(String.init(format: "Processing: % 3d%%", Int(progress*80)+20))
+            self.meshViewController.showMeshViewerMessage(String.init(format: "Processing: % 3d%%", Int(progress * 80) + 20))
             })
 		}
 	}
@@ -890,12 +887,12 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
                                     previewCompletionHandler()
                                     self.meshViewController.mesh = mesh
 
-									self.performEnhancedColorize(mesh, enhancedCompletionHandler:enhancedCompletionHandler)
+									self.performEnhancedColorize(mesh, enhancedCompletionHandler: enhancedCompletionHandler)
                                     })
                                     self._naiveColorizeTask = nil
                                 }
 			},
-		                   options: [kSTColorizerTypeKey : STColorizerType.perVertex.rawValue,
+		                   options: [kSTColorizerTypeKey: STColorizerType.perVertex.rawValue,
             kSTColorizerPrioritizeFirstFrameColorKey: _options.prioritizeFirstFrameColor]
 		)
 
@@ -927,7 +924,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 
                 self._enhancedColorizeTask = nil
             }
-            }, options: [kSTColorizerTypeKey : STColorizerType.textureMapForObject.rawValue, kSTColorizerPrioritizeFirstFrameColorKey: _options.prioritizeFirstFrameColor, kSTColorizerQualityKey: _options.colorizerQuality.rawValue, kSTColorizerTargetNumberOfFacesKey: _options.colorizerTargetNumFaces])
+            }, options: [kSTColorizerTypeKey: STColorizerType.textureMapForObject.rawValue, kSTColorizerPrioritizeFirstFrameColorKey: _options.prioritizeFirstFrameColor, kSTColorizerQualityKey: _options.colorizerQuality.rawValue, kSTColorizerTargetNumberOfFacesKey: _options.colorizerTargetNumFaces])
 
 		if _enhancedColorizeTask != nil {
 
@@ -991,7 +988,7 @@ class ScanController: UIViewController, STBackgroundTaskDelegate, MeshViewDelega
 					handler: { _ in
 						self._slamState.showingMemoryWarning = false
 						self.enterViewingState()
-				})
+                })
 
 				alertCtrl.addAction(okAction)
 
