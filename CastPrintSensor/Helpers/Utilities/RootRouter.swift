@@ -26,8 +26,18 @@ class RootRouter {
 
     func loadMainAppStructure() {
         // Customize your app structure here
-        let controller = UIViewController()
-        controller.view.backgroundColor = UIColor.red
-        setRootViewController(controller: controller, animatedWithOptions: nil)
+
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+
+        if authStatus != .authorized {
+            NSLog("Not authorized to use the camera!")
+            AVCaptureDevice.requestAccess(for: AVMediaType.video) { _ in
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: "Scan", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ScanController")
+        
+        setRootViewController(controller: initialViewController, animatedWithOptions: nil)
     }
 }

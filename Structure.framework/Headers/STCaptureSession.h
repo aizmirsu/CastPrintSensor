@@ -1,79 +1,16 @@
 /*
     This file is part of the Structure SDK.
-    Copyright © 2018 Occipital, Inc. All rights reserved.
+    Copyright © 2019 Occipital, Inc. All rights reserved.
     http://structure.io
 */
 
 #pragma once
 
 #import <Structure/STCaptureSession+Types.h>
+#import <Structure/STSensorController+Types.h>
 #import <Structure/STOccFileWriter.h>
 
-#import <Foundation/Foundation.h>
-#import <Structure/Structure.h>
 
-@class STCaptureSession;
-@protocol STSensorControllerProtocol;
-
-#pragma mark - Dictionary keys definition
-
-// Dictionary keys for [STCaptureSession startMonitoringWithOptions:options];
-extern NSString* const kSTCaptureSessionOptionDepthSensorEnabledKey;
-extern NSString* const kSTCaptureSessionOptionInfraredSensorEnabledKey;
-
-extern NSString* const kSTCaptureSessionOptionDepthSensorVGAEnabledIfAvailableKey;
-extern NSString* const kSTCaptureSessionOptionSensorAndIOSCameraSyncEnabledKey;
-extern NSString* const kSTCaptureSessionOptionIOSCameraKey;
-extern NSString* const kSTCaptureSessionOptionColorResolutionKey;
-extern NSString* const kSTCaptureSessionOptionColorMaxFPSKey;
-extern NSString* const kSTCaptureSessionOptionUseAppleCoreMotionKey;
-extern NSString* const kSTCaptureSessionOptionToggleDepthSensorAutomaticallyKey;
-extern NSString* const kSTCaptureSessionOptionStartOCCAfterSecondsKey;
-extern NSString* const kSTCaptureSessionOptionSimulateRealtimePlaybackKey;
-
-// Dictionary keys for iOS colour camera modes.
-// Can be set via _captureSession.properties
-extern NSString* const kSTCaptureSessionPropertyIOSCameraFocusModeKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraExposureModeKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraISOModeKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceModeKey;
-
-// Dictionary keys to specify values for given iOS colour camera modes
-// Can be set via _captureSession.properties
-extern NSString* const kSTCaptureSessionPropertyIOSCameraFocusValueKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraExposureValueKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraISOValueKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceRedGainValueKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceGreenGainValueKey;
-extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceBlueGainValueKey;
-
-// Keys for sensor-specific setting modes
-extern NSString* const kSTCaptureSessionPropertySensorIRExposureModeKey;
-
-// Keys to specify values for sensor-specific setting modes
-extern NSString* const kSTCaptureSessionPropertySensorIRExposureValueKey;
-extern NSString* const kSTCaptureSessionPropertySensorIRAnalogGainValueKey;
-extern NSString* const kSTCaptureSessionPropertySensorIRDigitalGainValueKey;
-
-// Dictionary keys to get corresponding sample entry objects from the dictionary
-// passed to [STCaptureSessionDelegate captureSession:didOutputSample:type:]
-extern NSString* const kSTCaptureSessionSampleEntryIOSColorFrame;
-extern NSString* const kSTCaptureSessionSampleEntryDepthFrame;
-extern NSString* const kSTCaptureSessionSampleEntryInfraredFrame;
-extern NSString* const kSTCaptureSessionSampleEntryDeviceMotionData;
-extern NSString* const kSTCaptureSessionSampleEntryGyroData;
-extern NSString* const kSTCaptureSessionSampleEntryAccelData;
-extern NSString* const kSTCaptureSessionSampleEntryControllerGyroData;
-extern NSString* const kSTCaptureSessionSampleEntryControllerAccelData;
-
-// Structure Sensor Mark II iOS keys
-extern NSString* const kSTCaptureSessionOptionDepthStreamPresetKey;
-
-extern NSString* const kSTCaptureSessionOptionInfraredSensorAutoExposureModeKey;
-extern NSString* const kSTCaptureSessionOptionInfraredSensorManualExposureKey;
-extern NSString* const kSTCaptureSessionOptionInfraredSensorManualGainKey;
-
-//------------------------------------------------------------------------------
 #pragma mark - STCaptureSessionDelegate API
 
 /** Capture Session Delegate
@@ -216,6 +153,7 @@ The status of the lens that can be sent to this delegate will be one of the foll
 - (void)captureSession:(STCaptureSession *)captureSession onLensDetectorOutput:(STDetectedLensStatus)detectedLensStatus;
 
 @end
+
 
 //------------------------------------------------------------------------------
 #pragma mark - STCaptureSession API

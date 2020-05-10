@@ -11,14 +11,36 @@
 		2A1DD4E11F389E2100712195 /* NotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1DD4E01F389E2100712195 /* NotificationsHandler.swift */; };
 		2A1E77371F384BFC006C84D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E77361F384BFC006C84D4 /* AppDelegate.swift */; };
 		2A1E773E1F384BFD006C84D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E773D1F384BFD006C84D4 /* Assets.xcassets */; };
-		2A1E77411F384BFD006C84D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E773F1F384BFD006C84D4 /* LaunchScreen.storyboard */; };
 		2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9222811F38797600A648E6 /* ConfigurationManager.swift */; };
 		2ABEE6D41F38856A00531205 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ABEE6D31F38828A00531205 /* Configuration.plist */; };
 		2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEE6D51F3886D700531205 /* RootRouter.swift */; };
 		3C06139323CBC14D001F1353 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C06139223CBC14D001F1353 /* OpenGLES.framework */; };
+		3C06209A240EEA5700F57DB2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C062099240EEA5700F57DB2 /* GLKit.framework */; };
+		3C06209C240EEA7400F57DB2 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C06209B240EEA7400F57DB2 /* CoreMotion.framework */; };
+		3C06209E240EEA8100F57DB2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C06209D240EEA8100F57DB2 /* CoreImage.framework */; };
+		3C0620A0240EEA8C00F57DB2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C06209F240EEA8C00F57DB2 /* CoreGraphics.framework */; };
+		3C0620A2240EEA9B00F57DB2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620A1240EEA9B00F57DB2 /* CoreMedia.framework */; };
+		3C0620A4240EEAA600F57DB2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620A3240EEAA600F57DB2 /* CoreVideo.framework */; };
+		3C0620A6240EEABB00F57DB2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620A5240EEABB00F57DB2 /* AVFoundation.framework */; };
+		3C0620A8240EEAD800F57DB2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620A7240EEAD800F57DB2 /* MessageUI.framework */; };
+		3C0620AA240EEAE800F57DB2 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620A9240EEAE800F57DB2 /* VideoToolbox.framework */; };
+		3C0620AC240EEAF900F57DB2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620AB240EEAF900F57DB2 /* MetalPerformanceShaders.framework */; };
+		3C0620AE240EEB0600F57DB2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620AD240EEB0500F57DB2 /* Metal.framework */; };
+		3C0620B72438E68E00F57DB2 /* MeshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620B62438E68E00F57DB2 /* MeshViewController.swift */; };
+		3C0620B92438E6D800F57DB2 /* ScanController+OpenGL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620B82438E6D800F57DB2 /* ScanController+OpenGL.swift */; };
+		3C0620BB2438E73B00F57DB2 /* ScanController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620BA2438E73B00F57DB2 /* ScanController+Camera.swift */; };
+		3C0620BD2438E77400F57DB2 /* ScanController+SLAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620BC2438E77400F57DB2 /* ScanController+SLAM.swift */; };
+		3C0620BF2438E7C200F57DB2 /* CustomShaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620BE2438E7C200F57DB2 /* CustomShaders.swift */; };
+		3C0620C12438E7F800F57DB2 /* MeshRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620C02438E7F800F57DB2 /* MeshRenderer.swift */; };
+		3C0620C32438E81D00F57DB2 /* EAGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620C22438E81D00F57DB2 /* EAGLView.swift */; };
+		3C0620C52438E85100F57DB2 /* ScannerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620C42438E85100F57DB2 /* ScannerExtensions.swift */; };
+		3C0620C72438E89200F57DB2 /* ViewpointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0620C62438E89200F57DB2 /* ViewpointController.swift */; };
+		3C0620C824390A0C00F57DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E773F1F384BFD006C84D4 /* LaunchScreen.storyboard */; };
+		3C0620C9243913AF00F57DB2 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620AF240EFC3C00F57DB2 /* Structure.framework */; };
+		3C0620CA243913AF00F57DB2 /* Structure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0620AF240EFC3C00F57DB2 /* Structure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C6051D9239D8D2A00F78E6B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6051D8239D8D2900F78E6B /* R.generated.swift */; };
-		3C6051DD239D9CFB00F78E6B /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C776728239D7EE400CA2332 /* Structure.framework */; };
-		3C6051DE239D9CFB00F78E6B /* Structure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C776728239D7EE400CA2332 /* Structure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3C672E3423DE190D00BE741B /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C672E3323DE190D00BE741B /* Scan.storyboard */; };
+		3C672E3623DE307B00BE741B /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C672E3523DE307B00BE741B /* ScanController.swift */; };
 		3C77672C239D815000CA2332 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C77672B239D815000CA2332 /* libz.tbd */; };
 		3C77672E239D815B00CA2332 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C77672D239D815B00CA2332 /* Accelerate.framework */; };
 		3C776730239D816700CA2332 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C77672F239D816700CA2332 /* ImageIO.framework */; };
@@ -42,13 +64,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3C6051DF239D9CFB00F78E6B /* Embed Frameworks */ = {
+		3C0620CB243913B000F57DB2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3C6051DE239D9CFB00F78E6B /* Structure.framework in Embed Frameworks */,
+				3C0620CA243913AF00F57DB2 /* Structure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,8 +96,30 @@
 		2ABEE6D51F3886D700531205 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		318E68FF55B9D80384B8A41F /* Pods_CastPrintSensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastPrintSensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C06139223CBC14D001F1353 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3C062099240EEA5700F57DB2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		3C06209B240EEA7400F57DB2 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3C06209D240EEA8100F57DB2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		3C06209F240EEA8C00F57DB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3C0620A1240EEA9B00F57DB2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		3C0620A3240EEAA600F57DB2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		3C0620A5240EEABB00F57DB2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3C0620A7240EEAD800F57DB2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3C0620A9240EEAE800F57DB2 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		3C0620AB240EEAF900F57DB2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
+		3C0620AD240EEB0500F57DB2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		3C0620AF240EFC3C00F57DB2 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Structure.framework; sourceTree = "<group>"; };
+		3C0620B62438E68E00F57DB2 /* MeshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshViewController.swift; sourceTree = "<group>"; };
+		3C0620B82438E6D800F57DB2 /* ScanController+OpenGL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanController+OpenGL.swift"; sourceTree = "<group>"; };
+		3C0620BA2438E73B00F57DB2 /* ScanController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanController+Camera.swift"; sourceTree = "<group>"; };
+		3C0620BC2438E77400F57DB2 /* ScanController+SLAM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanController+SLAM.swift"; sourceTree = "<group>"; };
+		3C0620BE2438E7C200F57DB2 /* CustomShaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShaders.swift; sourceTree = "<group>"; };
+		3C0620C02438E7F800F57DB2 /* MeshRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshRenderer.swift; sourceTree = "<group>"; };
+		3C0620C22438E81D00F57DB2 /* EAGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAGLView.swift; sourceTree = "<group>"; };
+		3C0620C42438E85100F57DB2 /* ScannerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerExtensions.swift; sourceTree = "<group>"; };
+		3C0620C62438E89200F57DB2 /* ViewpointController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewpointController.swift; sourceTree = "<group>"; };
 		3C6051D8239D8D2900F78E6B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		3C776728239D7EE400CA2332 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Structure.framework; sourceTree = "<group>"; };
+		3C672E3323DE190D00BE741B /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
+		3C672E3523DE307B00BE741B /* ScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
 		3C77672B239D815000CA2332 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3C77672D239D815B00CA2332 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3C77672F239D816700CA2332 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -96,12 +140,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0620C9243913AF00F57DB2 /* Structure.framework in Frameworks */,
+				3C0620AA240EEAE800F57DB2 /* VideoToolbox.framework in Frameworks */,
+				3C0620A2240EEA9B00F57DB2 /* CoreMedia.framework in Frameworks */,
+				3C0620AC240EEAF900F57DB2 /* MetalPerformanceShaders.framework in Frameworks */,
 				3C06139323CBC14D001F1353 /* OpenGLES.framework in Frameworks */,
-				3C6051DD239D9CFB00F78E6B /* Structure.framework in Frameworks */,
+				3C06209C240EEA7400F57DB2 /* CoreMotion.framework in Frameworks */,
+				3C0620A4240EEAA600F57DB2 /* CoreVideo.framework in Frameworks */,
 				3C776732239D817000CA2332 /* ExternalAccessory.framework in Frameworks */,
 				3C776730239D816700CA2332 /* ImageIO.framework in Frameworks */,
 				3C77672E239D815B00CA2332 /* Accelerate.framework in Frameworks */,
+				3C0620AE240EEB0600F57DB2 /* Metal.framework in Frameworks */,
 				3C77672C239D815000CA2332 /* libz.tbd in Frameworks */,
+				3C06209E240EEA8100F57DB2 /* CoreImage.framework in Frameworks */,
+				3C06209A240EEA5700F57DB2 /* GLKit.framework in Frameworks */,
+				3C0620A8240EEAD800F57DB2 /* MessageUI.framework in Frameworks */,
+				3C0620A0240EEA8C00F57DB2 /* CoreGraphics.framework in Frameworks */,
+				3C0620A6240EEABB00F57DB2 /* AVFoundation.framework in Frameworks */,
 				56E63550EEEC464DA3C50DEF /* Pods_CastPrintSensor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +323,17 @@
 		3C06137723C3B00D001F1353 /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				3C672E3323DE190D00BE741B /* Scan.storyboard */,
+				3C672E3523DE307B00BE741B /* ScanController.swift */,
+				3C0620BA2438E73B00F57DB2 /* ScanController+Camera.swift */,
+				3C0620B82438E6D800F57DB2 /* ScanController+OpenGL.swift */,
+				3C0620BC2438E77400F57DB2 /* ScanController+SLAM.swift */,
+				3C0620B62438E68E00F57DB2 /* MeshViewController.swift */,
+				3C0620BE2438E7C200F57DB2 /* CustomShaders.swift */,
+				3C0620C02438E7F800F57DB2 /* MeshRenderer.swift */,
+				3C0620C22438E81D00F57DB2 /* EAGLView.swift */,
+				3C0620C42438E85100F57DB2 /* ScannerExtensions.swift */,
+				3C0620C62438E89200F57DB2 /* ViewpointController.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -283,12 +349,23 @@
 		835CBC222A042520F188191B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C0620AF240EFC3C00F57DB2 /* Structure.framework */,
+				3C0620AD240EEB0500F57DB2 /* Metal.framework */,
+				3C0620AB240EEAF900F57DB2 /* MetalPerformanceShaders.framework */,
+				3C0620A9240EEAE800F57DB2 /* VideoToolbox.framework */,
+				3C0620A7240EEAD800F57DB2 /* MessageUI.framework */,
+				3C0620A5240EEABB00F57DB2 /* AVFoundation.framework */,
+				3C0620A3240EEAA600F57DB2 /* CoreVideo.framework */,
+				3C0620A1240EEA9B00F57DB2 /* CoreMedia.framework */,
+				3C06209F240EEA8C00F57DB2 /* CoreGraphics.framework */,
+				3C06209D240EEA8100F57DB2 /* CoreImage.framework */,
+				3C06209B240EEA7400F57DB2 /* CoreMotion.framework */,
+				3C062099240EEA5700F57DB2 /* GLKit.framework */,
 				3C06139223CBC14D001F1353 /* OpenGLES.framework */,
 				3C776731239D817000CA2332 /* ExternalAccessory.framework */,
 				3C77672F239D816700CA2332 /* ImageIO.framework */,
 				3C77672D239D815B00CA2332 /* Accelerate.framework */,
 				3C77672B239D815000CA2332 /* libz.tbd */,
-				3C776728239D7EE400CA2332 /* Structure.framework */,
 				318E68FF55B9D80384B8A41F /* Pods_CastPrintSensor.framework */,
 				72473C408A6022639D54FC85 /* Pods_CastPrintSensorTests.framework */,
 			);
@@ -322,7 +399,7 @@
 				2A1E77301F384BFC006C84D4 /* Frameworks */,
 				2A1E77311F384BFC006C84D4 /* Resources */,
 				DAEE904C0F652CCDFC404503 /* [CP] Embed Pods Frameworks */,
-				3C6051DF239D9CFB00F78E6B /* Embed Frameworks */,
+				3C0620CB243913B000F57DB2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,10 +474,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0620C824390A0C00F57DB2 /* LaunchScreen.storyboard in Resources */,
 				2ABEE6D41F38856A00531205 /* Configuration.plist in Resources */,
 				FCB2C7CB1F57127800481080 /* Localizable.strings in Resources */,
-				2A1E77411F384BFD006C84D4 /* LaunchScreen.storyboard in Resources */,
 				2A1E773E1F384BFD006C84D4 /* Assets.xcassets in Resources */,
+				3C672E3423DE190D00BE741B /* Scan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,14 +595,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0620B72438E68E00F57DB2 /* MeshViewController.swift in Sources */,
+				3C0620C12438E7F800F57DB2 /* MeshRenderer.swift in Sources */,
 				2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */,
+				3C0620BF2438E7C200F57DB2 /* CustomShaders.swift in Sources */,
+				3C0620C72438E89200F57DB2 /* ViewpointController.swift in Sources */,
+				3C0620C52438E85100F57DB2 /* ScannerExtensions.swift in Sources */,
+				3C672E3623DE307B00BE741B /* ScanController.swift in Sources */,
+				3C0620BB2438E73B00F57DB2 /* ScanController+Camera.swift in Sources */,
 				2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */,
+				3C0620B92438E6D800F57DB2 /* ScanController+OpenGL.swift in Sources */,
+				3C0620BD2438E77400F57DB2 /* ScanController+SLAM.swift in Sources */,
 				C90395241FC622D2006F1DC0 /* main.swift in Sources */,
 				3C6051D9239D8D2A00F78E6B /* R.generated.swift in Sources */,
 				2A1E77371F384BFC006C84D4 /* AppDelegate.swift in Sources */,
 				C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */,
 				2A1DD4E11F389E2100712195 /* NotificationsHandler.swift in Sources */,
 				2A1DD4DF1F389C2200712195 /* DeeplinkHandler.swift in Sources */,
+				3C0620C32438E81D00F57DB2 /* EAGLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +771,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"HAS_LIBCXX=1",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers/**";
 				INFOPLIST_FILE = CastPrintSensor/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -713,7 +806,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"HAS_LIBCXX=1",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers/**";
 				INFOPLIST_FILE = CastPrintSensor/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -847,7 +945,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"HAS_LIBCXX=1",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Structure.framework/Headers/**";
 				INFOPLIST_FILE = CastPrintSensor/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

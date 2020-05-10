@@ -1,14 +1,14 @@
 /*
     This file is part of the Structure SDK.
-    Copyright © 2018 Occipital, Inc. All rights reserved.
+    Copyright © 2019 Occipital, Inc. All rights reserved.
     http://structure.io
 */
 
 #pragma once
 
-#import <Foundation/Foundation.h>
+#import <Structure/StructureBase.h>
 
-#import <Structure/Structure.h>
+#pragma mark - STOccFilerWriter
 
 /** The OCC writer class is the central class that manages writing incoming sensor data from a capture session to an OCC file.
 
@@ -37,7 +37,7 @@ however the following interface is exposed when calling `captureSession.occWrite
 /// How many frames-per-second are being written to the OCC file on average.
 @property (nonatomic, readonly) float fps;
 
-/// Setting for whether or not to use H264 compression on color frames when writing to OCC.
+/// Whether or not to use H264 compression on color frames when writing to OCC.
 @property (nonatomic, readwrite) BOOL useH264ForColor;
 
 /** Starts writing events to the OCC file at the specified file path property.

@@ -1,12 +1,71 @@
+
 /*
     This file is part of the Structure SDK.
-    Copyright © 2018 Occipital, Inc. All rights reserved.
+    Copyright © 2016 Occipital, Inc. All rights reserved.
     http://structure.io
 */
 
 #pragma once
 
-#import <Structure/Structure.h>
+#import <Structure/StructureBase.h>
+
+#pragma mark - STCaptureSession Base Types
+
+@class STCaptureSession;
+@protocol STSensorControllerProtocol;
+
+// Dictionary keys for [STCaptureSession startMonitoringWithOptions:options];
+extern NSString* const kSTCaptureSessionOptionDepthSensorEnabledKey;
+extern NSString* const kSTCaptureSessionOptionInfraredSensorEnabledKey;
+
+extern NSString* const kSTCaptureSessionOptionDepthSensorVGAEnabledIfAvailableKey;
+extern NSString* const kSTCaptureSessionOptionSensorAndIOSCameraSyncEnabledKey;
+extern NSString* const kSTCaptureSessionOptionIOSCameraKey;
+extern NSString* const kSTCaptureSessionOptionColorResolutionKey;
+extern NSString* const kSTCaptureSessionOptionColorMaxFPSKey;
+extern NSString* const kSTCaptureSessionOptionUseAppleCoreMotionKey;
+extern NSString* const kSTCaptureSessionOptionToggleDepthSensorAutomaticallyKey;
+extern NSString* const kSTCaptureSessionOptionStartOCCAfterSecondsKey;
+extern NSString* const kSTCaptureSessionOptionSimulateRealtimePlaybackKey;
+
+// Dictionary keys for iOS colour camera modes.
+// Can be set via _captureSession.properties
+extern NSString* const kSTCaptureSessionPropertyIOSCameraFocusModeKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraExposureModeKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraISOModeKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceModeKey;
+
+// Dictionary keys to specify values for given iOS colour camera modes
+// Can be set via _captureSession.properties
+extern NSString* const kSTCaptureSessionPropertyIOSCameraFocusValueKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraExposureValueKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraISOValueKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceRedGainValueKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceGreenGainValueKey;
+extern NSString* const kSTCaptureSessionPropertyIOSCameraWhiteBalanceBlueGainValueKey;
+
+// Keys for sensor-specific setting modes
+extern NSString* const kSTCaptureSessionPropertySensorIRExposureModeKey;
+
+// Keys to specify values for sensor-specific setting modes
+extern NSString* const kSTCaptureSessionPropertySensorIRExposureValueKey;
+extern NSString* const kSTCaptureSessionPropertySensorIRAnalogGainValueKey;
+extern NSString* const kSTCaptureSessionPropertySensorIRDigitalGainValueKey;
+
+// Dictionary keys to get corresponding sample entry objects from the dictionary
+// passed to [STCaptureSessionDelegate captureSession:didOutputSample:type:]
+extern NSString* const kSTCaptureSessionSampleEntryIOSColorFrame;
+extern NSString* const kSTCaptureSessionSampleEntryDepthFrame;
+extern NSString* const kSTCaptureSessionSampleEntryInfraredFrame;
+extern NSString* const kSTCaptureSessionSampleEntryDeviceMotionData;
+extern NSString* const kSTCaptureSessionSampleEntryGyroData;
+extern NSString* const kSTCaptureSessionSampleEntryAccelData;
+extern NSString* const kSTCaptureSessionSampleEntryControllerGyroData;
+extern NSString* const kSTCaptureSessionSampleEntryControllerAccelData;
+
+// Structure Sensor Mark II iOS keys
+extern NSString* const kSTCaptureSessionOptionDepthStreamPresetKey;
+
 
 /// Indicates the resolution that the user wants for color camera frames.
 typedef NS_ENUM(NSInteger, STCaptureSessionColorResolution)
@@ -215,6 +274,9 @@ typedef NS_OPTIONS(NSUInteger, STCaptureSessionUserInstruction)
 
     /// Indicates that the sensor is waking up from low-power mode.
     STCaptureSessionUserInstructionSensorWakingUp                    = 1 << 5,
+
+    /// Indicates that the sensor requires a firmware update.
+    STCaptureSessionUserInstructionFirmwareUpdateRequired            = 1 << 6,
 };
 
 /// Indicates whether or not a charger is plugged into the active Structure Sensor.
